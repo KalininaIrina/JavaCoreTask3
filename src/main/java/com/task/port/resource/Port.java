@@ -18,11 +18,11 @@ public class Port {
     }
 
     private static class PortHolder {
-        private static final Port INSTANCE = new Port();
+        private static final Port instance = new Port();
     }
 
     public static Port getInstance() {
-        return PortHolder.INSTANCE;
+        return PortHolder.instance;
     }
 
     public void init(int dockCount, int warehouseCapacity, int initialContainers){
