@@ -1,0 +1,9 @@
+18:20:00.330 [main] DEBUG com.task.port.resource.Warehouse - Ship tries to ADD 20 containers. Warehouse state: 50/100
+18:20:00.332 [main] INFO  com.task.port.resource.Warehouse - Ship ADDED 20 containers. Warehouse: 70/100
+18:20:00.335 [main] DEBUG com.task.port.resource.Warehouse - Ship tries to TAKE 30 containers. Warehouse state: 70/100
+18:20:00.335 [main] INFO  com.task.port.resource.Warehouse - Ship TOOK 30 containers. Warehouse: 40/100
+18:20:00.354 [pool-2-thread-1] DEBUG com.task.port.resource.Warehouse - Ship tries to ADD 20 containers. Warehouse state: 90/100
+18:20:00.354 [pool-2-thread-1] INFO  com.task.port.resource.Warehouse - Warehouse FULL. Ship is waiting to ADD 20 containers...
+18:20:01.360 [pool-2-thread-2] DEBUG com.task.port.resource.Warehouse - Ship tries to TAKE 50 containers. Warehouse state: 90/100
+18:20:01.375 [pool-2-thread-2] INFO  com.task.port.resource.Warehouse - Ship TOOK 50 containers. Warehouse: 40/100
+18:20:01.376 [pool-2-thread-1] INFO  com.task.port.resource.Warehouse - Ship ADDED 20 containers. Warehouse: 60/100

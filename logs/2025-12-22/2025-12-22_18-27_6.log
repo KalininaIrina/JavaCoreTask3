@@ -1,0 +1,10 @@
+18:27:03.180 [pool-2-thread-6] INFO  com.task.port.entity.Ship - Ship 6 departed. State: COMPLETED (Departed). Containers on board: 5
+18:27:03.180 [pool-2-thread-3] INFO  com.task.port.resource.Warehouse - Ship ADDED 50 containers. Warehouse: 70/100
+18:27:03.183 [pool-2-thread-3] DEBUG com.task.port.resource.Port - Dock released. Available docks: 2
+18:27:03.183 [pool-2-thread-3] INFO  com.task.port.entity.Ship - Ship 3 departed. State: COMPLETED (Departed). Containers on board: 30
+18:27:03.183 [main] INFO  com.task.port.main.Main - Result: Ship 1 completed successfully
+18:27:03.183 [main] INFO  com.task.port.main.Main - Result: Ship 2 completed successfully
+18:27:03.184 [main] INFO  com.task.port.main.Main - Result: Ship 3 completed successfully
+18:27:03.184 [main] INFO  com.task.port.main.Main - Result: Ship 4 completed successfully
+18:27:03.184 [main] INFO  com.task.port.main.Main - Result: Ship 5 completed successfully
+18:27:03.184 [main] INFO  com.task.port.main.Main - Result: Ship 6 completed successfully

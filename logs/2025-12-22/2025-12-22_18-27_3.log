@@ -1,0 +1,10 @@
+18:27:03.165 [pool-2-thread-4] INFO  com.task.port.entity.Ship - Ship 4 docked. State: PROCESSING (Loading/Unloading)
+18:27:03.165 [pool-2-thread-1] INFO  com.task.port.entity.Ship - Ship 1 docked. State: PROCESSING (Loading/Unloading)
+18:27:03.170 [pool-2-thread-4] ERROR com.task.port.entity.Ship - Ship 4 error: Not enough space on ship!
+18:27:03.170 [pool-2-thread-1] ERROR com.task.port.entity.Ship - Ship 1 error: Not enough containers on board!
+18:27:03.170 [pool-2-thread-4] DEBUG com.task.port.resource.Port - Dock released. Available docks: 1
+18:27:03.170 [pool-2-thread-1] DEBUG com.task.port.resource.Port - Dock released. Available docks: 2
+18:27:03.171 [pool-2-thread-5] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 1
+18:27:03.171 [pool-2-thread-2] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 0
+18:27:03.171 [pool-2-thread-2] INFO  com.task.port.entity.Ship - Ship 2 docked. State: PROCESSING (Loading/Unloading)
+18:27:03.171 [pool-2-thread-4] INFO  com.task.port.entity.Ship - Ship 4 departed. State: COMPLETED (Departed). Containers on board: 20

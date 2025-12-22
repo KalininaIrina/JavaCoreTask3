@@ -1,0 +1,9 @@
+18:27:03.176 [pool-2-thread-5] DEBUG com.task.port.resource.Port - Dock released. Available docks: 1
+18:27:03.176 [pool-2-thread-2] INFO  com.task.port.entity.Ship - Ship 2 departed. State: COMPLETED (Departed). Containers on board: 15
+18:27:03.176 [pool-2-thread-3] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 0
+18:27:03.176 [pool-2-thread-6] DEBUG com.task.port.resource.Warehouse - Ship tries to TAKE 5 containers. Warehouse state: 25/100
+18:27:03.179 [pool-2-thread-5] INFO  com.task.port.entity.Ship - Ship 5 departed. State: COMPLETED (Departed). Containers on board: 40
+18:27:03.179 [pool-2-thread-6] INFO  com.task.port.resource.Warehouse - Ship TOOK 5 containers. Warehouse: 20/100
+18:27:03.179 [pool-2-thread-3] INFO  com.task.port.entity.Ship - Ship 3 docked. State: PROCESSING (Loading/Unloading)
+18:27:03.179 [pool-2-thread-6] DEBUG com.task.port.resource.Port - Dock released. Available docks: 1
+18:27:03.180 [pool-2-thread-3] DEBUG com.task.port.resource.Warehouse - Ship tries to ADD 50 containers. Warehouse state: 20/100

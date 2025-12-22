@@ -1,0 +1,8 @@
+18:27:03.141 [pool-2-thread-4] INFO  com.task.port.entity.Ship - Ship 4 arrived. State: NEW (Arriving to harbor). Goal: LOAD_FROM_PORT 50 containers
+18:27:03.141 [pool-2-thread-6] INFO  com.task.port.entity.Ship - Ship 6 arrived. State: NEW (Arriving to harbor). Goal: LOAD_FROM_PORT 5 containers
+18:27:03.140 [pool-2-thread-2] INFO  com.task.port.entity.Ship - Ship 2 arrived. State: NEW (Arriving to harbor). Goal: LOAD_FROM_PORT 15 containers
+18:27:03.141 [pool-2-thread-5] INFO  com.task.port.entity.Ship - Ship 5 arrived. State: NEW (Arriving to harbor). Goal: LOAD_TO_PORT 10 containers
+18:27:03.141 [pool-2-thread-3] INFO  com.task.port.entity.Ship - Ship 3 arrived. State: NEW (Arriving to harbor). Goal: LOAD_TO_PORT 50 containers
+18:27:03.140 [pool-2-thread-1] INFO  com.task.port.entity.Ship - Ship 1 arrived. State: NEW (Arriving to harbor). Goal: LOAD_TO_PORT 20 containers
+18:27:03.164 [pool-2-thread-4] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 0
+18:27:03.164 [pool-2-thread-1] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 0

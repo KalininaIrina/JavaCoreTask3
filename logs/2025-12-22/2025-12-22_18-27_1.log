@@ -1,0 +1,10 @@
+18:22:17.975 [main] WARN  com.task.port.resource.Port - Port is already initialized!
+18:22:17.983 [main] INFO  com.task.port.entity.Ship - Ship 2 arrived. State: NEW (Arriving to harbor). Goal: LOAD_TO_PORT 20 containers
+18:22:17.984 [main] DEBUG com.task.port.resource.Port - Dock acquired. Remaining docks: 1
+18:22:17.984 [main] INFO  com.task.port.entity.Ship - Ship 2 docked. State: PROCESSING (Loading/Unloading)
+18:22:17.984 [main] DEBUG com.task.port.resource.Warehouse - Ship tries to ADD 20 containers. Warehouse state: 40/100
+18:22:17.984 [main] INFO  com.task.port.resource.Warehouse - Ship ADDED 20 containers. Warehouse: 60/100
+18:22:17.984 [main] DEBUG com.task.port.resource.Port - Dock released. Available docks: 2
+18:22:17.985 [main] INFO  com.task.port.entity.Ship - Ship 2 departed. State: COMPLETED (Departed). Containers on board: 30
+18:27:03.132 [main] INFO  com.task.port.resource.Port - Port initialized with 2 docks and warehouse 30/100
+18:27:03.139 [main] INFO  com.task.port.main.Main - STARTING SIMULATION with 6 ships...
