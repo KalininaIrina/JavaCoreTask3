@@ -3,16 +3,13 @@ package com.task.port.resource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Port {
     private static final Logger logger = LogManager.getLogger();
-
-     private Warehouse warehouse;
-     private Semaphore docks;
-
-     private final AtomicBoolean isInitialized = new AtomicBoolean(false);
 
     private Port() {
     }
@@ -25,33 +22,58 @@ public class Port {
         return PortHolder.instance;
     }
 
-    public void init(int dockCount, int warehouseCapacity, int initialContainers){
+    private Warehouse warehouse;
+    private final AtomicBoolean isInitialized = new AtomicBoolean(false);
 
-        if(isInitialized.compareAndSet(false, true)){
-            this.docks = new Semaphore(dockCount, true);
+    private int freeDocks;
+    private final Lock lock = new ReentrantLock(true);
+    private final Condition dockAvailable = lock.newCondition();
+
+    public void init(int dockCount, int warehouseCapacity, int initialContainers) {
+
+        if (isInitialized.compareAndSet(false, true)) {
+
+            this.freeDocks = dockCount;
             this.warehouse = new Warehouse(warehouseCapacity, initialContainers);
-            logger.info("Port initialized with {} docks and warehouse {}/{}", dockCount, initialContainers, warehouseCapacity);
-        } else{
+
+            logger.info("Port initialized with {} docks and warehouse {}/{}",
+                    dockCount, initialContainers, warehouseCapacity);
+        } else {
             logger.warn("Port is already initialized!");
         }
-
     }
 
-    // занять причал
-    public void acquireDock(){
-        try{
-            docks.acquire();
-            logger.debug("Dock acquired. Remaining docks: {}", docks.availablePermits());
-        } catch (InterruptedException e){
+    public void acquireDock() {
+        lock.lock();
+        try {
+            while (freeDocks <= 0) {
+                logger.debug("No docks available. Ship is waiting...");
+                dockAvailable.await();
+            }
+
+            freeDocks--;
+            logger.debug("Dock acquired. Docks left: {}", freeDocks);
+
+        } catch (InterruptedException e) {
             logger.error("Interrupted while waiting for dock", e);
             Thread.currentThread().interrupt();
+        } finally {
+            lock.unlock();
         }
     }
 
-    //освободить причал
-    public void releaseDock(){
-        docks.release();
-        logger.debug("Dock released. Available docks: {}", docks.availablePermits());
+
+    public void releaseDock() {
+        lock.lock();
+        try {
+            freeDocks++;
+            logger.debug("Dock released. Docks available: {}", freeDocks);
+
+            dockAvailable.signal();
+
+        } finally {
+            lock.unlock();
+        }
     }
 
     public Warehouse getWarehouse() {

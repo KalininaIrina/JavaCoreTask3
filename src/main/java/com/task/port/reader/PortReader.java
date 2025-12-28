@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PortReader {
-    private static final Logger logger = LogManager.getLogger(PortReader.class);
+    private static final Logger logger = LogManager.getLogger();
 
     public List<String> readLines(String filePath) {
         Path path = Paths.get(filePath);

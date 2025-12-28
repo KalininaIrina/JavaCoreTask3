@@ -57,18 +57,24 @@ public class Main {
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(8);
-
         logger.info("STARTING SIMULATION with {} ships...", ships.size());
 
         try {
             List<Future<String>> results = executorService.invokeAll(ships);
 
             for (Future<String> result : results) {
-                logger.info("Result: {}", result.get());
+                try {
+                    logger.info("Result: {}", result.get());
+                } catch (java.util.concurrent.ExecutionException e) {
+
+                    Throwable cause = e.getCause();
+                    logger.error("Ship failed: {}", cause.getMessage());
+                }
             }
 
-        } catch (Exception e) {
-            logger.error("Simulation failed", e);
+        } catch (InterruptedException e) {
+            logger.error("Simulation interrupted", e);
+            Thread.currentThread().interrupt();
         } finally {
             executorService.shutdown();
         }
